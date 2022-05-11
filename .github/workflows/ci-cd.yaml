@@ -33,9 +33,9 @@ jobs:
       run: |
         pytest -v
 
-    - name: log_production_model:
+    - name: log_production_model
       run: |
-      python src/models/production_model_selection.py --config=params.yaml
+        python src/models/production_model_selection.py --config=params.yaml
 
     - name: Deploy to Heroku
       env:
