@@ -1,33 +1,25 @@
- Python application
-
-on:
-
-
-
-
 name: mlflow
 on: [push]
 jobs:
   run:
-
+    runs-on: [ubuntu-latest]
     steps:
-
       - name: cml_run
         run: |
-        python src/data/load_data.py --config=params.yaml
+         python src/data/load_data.py --config=params.yaml
 
-     - name: split_data
-       run: |
-       python src/data/split_data.py --config=params.yaml
+      - name: split_data
+        run: |
+         python src/data/split_data.py --config=params.yaml
        
        
-     - name: split_data
-       run: |
-       python src/models/train_model.py --config=params.yaml
+      - name: split_data
+        run: |
+         python src/models/train_model.py --config=params.yaml
 
-     - name: log_production_model
-       run: |
-       python src/models/production_model_selection.py --config=params.yaml
+      - name: log_production_model
+        run: |
+         python src/models/production_model_selection.py --config=params.yaml
        
 
 
